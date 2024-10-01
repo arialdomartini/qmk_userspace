@@ -1,5 +1,42 @@
 # QMK Userspace
 
+# Setup
+I setup the environment with:
+
+```bash
+yay -S qmk
+qmk setup
+qmk setup -H /home/arialdo/prg/c/qmk_firmware
+```
+
+The resulting QMK config is:
+
+```
+user.overlay_dir=/home/arialdo/prg/c/qmk_userspace
+user.qmk_home=/home/arialdo/prg/c/qmk_firmware
+```
+
+I initially created the keymap directories with:
+
+```bash
+qmk new-keymap -kb maple_computing/minidoc -km gould
+```
+
+which created:
+
+``` /home/arialdo/prg/c/qmk_userspace/keyboards/maple_computing/minidox/rev1/keymaps/gould:
+```
+
+Notice that the directory `rev1` did not exist in the original
+`qmk_firmware`. The original keymap could be ported to userspace with:
+
+```bash
+cp -rvf keyboards/maple_computing/minidox/keymaps/gould/*
+../qmk_userspace/keyboards/maple_computing/minidox/rev1/keymaps/gould
+```
+
+# Original README content
+
 This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the main QMK repository.
 
 ## Howto configure your build targets
@@ -57,3 +94,4 @@ This can also be used to control which fork is used, though only upstream `qmk_f
 1. (First time only) `git submodule add https://github.com/qmk/qmk_firmware.git`
 1. (To update) `git submodule update --init --recursive`
 1. Commit your changes to your userspace repository
+
