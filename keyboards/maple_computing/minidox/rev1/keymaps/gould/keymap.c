@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "features/achordion.h"
 
 #define _BASE  0
 #define _CURS  1
@@ -54,7 +55,7 @@
 #define MY_DEL LT(_FUNL, KC_DEL)
 #define MY_SPC LT(_NUM, KC_SPC)
 #define MY_RET LT(_CURS, KC_ENTER)
-
+#define MY_BSP LT(_SYMB, KC_BSPC)
 
 /* #define MY_Q LT(MEDI, KC_Q) */
 /* #define MY_G MT(MOD_HYPR, KC_G) */
@@ -74,7 +75,41 @@ enum custom_keycodes {
     MYDIR
 };
 
+void matrix_scan_user(void) {
+  achordion_task();
+}
+
+bool achordion_chord(uint16_t tap_hold_keycode,
+                     keyrecord_t* tap_hold_record,
+                     uint16_t other_keycode,
+                     keyrecord_t* other_record) {
+  // Exceptionally consider the following chords as holds, even though they
+  // are on the same hand in Dvorak.
+  switch (tap_hold_keycode) {
+    case MY_RET:
+      return true;
+      break;
+    case MY_SPC:
+      return true;
+      break;
+    case MY_DEL:
+      return true;
+      break;
+    case MY_BSP:
+      return true;
+      break;
+  }
+
+  // Also allow same-hand holds when the other key is in the rows below the
+  // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
+  //  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }
+
+  // Otherwise, follow the opposite hands rule.
+  return achordion_opposite_hands(tap_hold_record, other_record);
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_achordion(keycode, record)) { return false; }
   switch (keycode) {
     case MYARROW:
         if (record->event.pressed) {
@@ -154,7 +189,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    \
   MY_A,    MY_S,    MY_D,    MY_F,    KC_G,         KC_H,    MY_J,    MY_K,    MY_L,    MY_SCLN, \
   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,         KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, \
-    MO(_FLASH),    LT(_SYMB, KC_BSPC),   MY_RET,       MY_SPC,  MY_DEL,  _______	\
+    MO(_FLASH),     MY_BSP,  MY_RET,       MY_SPC,  MY_DEL,  _______	\
 ),
 
 /* CURS
