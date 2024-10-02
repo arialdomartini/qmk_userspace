@@ -83,26 +83,21 @@ bool achordion_chord(uint16_t tap_hold_keycode,
                      keyrecord_t* tap_hold_record,
                      uint16_t other_keycode,
                      keyrecord_t* other_record) {
-  // Exceptionally consider the following chords as holds, even though they
-  // are on the same hand in Dvorak.
   switch (tap_hold_keycode) {
     case MY_RET:
       return true;
-      break;
+
     case MY_SPC:
       return true;
-      break;
-    case MY_DEL:
-      return true;
-      break;
-    case MY_BSP:
-      return true;
-      break;
-  }
 
-  // Also allow same-hand holds when the other key is in the rows below the
-  // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
-  //  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }
+    case MY_BSP:
+      if (other_keycode == KC_DEL) { return false; }
+      return true;
+
+    case MY_DEL:
+      if (other_keycode == KC_BSPC) { return false; }
+      return true;
+  }
 
   // Otherwise, follow the opposite hands rule.
   return achordion_opposite_hands(tap_hold_record, other_record);
@@ -245,7 +240,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |           |      |      |      |      |      |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
- *                  |      | Esc  |      |    |      |      |      |
+ *                  |      | BCSP | ESC  |    |      |      |      |
  *                  `-------------|      |    |      |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
@@ -254,7 +249,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,    KC_F16,  KC_F17,   KC_F18,   KC_F19,  KC_F20,   \
   MY_F1,   MY_F2,   MY_F3,   MY_F4,   KC_F5,     KC_F6,   MY_F7,    MY_F8,    MY_F9,   MY_F10,   \
   _,       _,       _,       _,          _,       _,        _,        _,       _,   _,       \
-                    _,       KC_ESC,     _,       _,       _,       _ \
+                    _,       KC_BSPC,     KC_ESC,       _,       _,       _ \
 ),
 
 /* 
@@ -267,7 +262,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | <$>  |      |      |  <-  |  <|  |           |  |>  |  ->  |  =>  |  >>= | <*>  |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
- *                  |      |      |      |    |      |      |      |
+ *                  |      |      |      |    |      | DEL  |      |
  *                  `-------------|      |    |      |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
@@ -276,7 +271,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _,   _,        _,        _,        _,           KC_PIPE,  KC_UNDS,   KC_ASTR,   KC_TILD,  KC_DQUO,   \
   KC_LT,   KC_LCBR,  KC_LBRC,  KC_LPRN,  _,           _,        KC_RPRN,   KC_RBRC,   KC_RCBR,  KC_GT,     \
   MYMAP,   _,        _,        MYBARROW, MYBPIPE,     MYPIPE,   MYARROW,   MYDARROW,  MYBIND,   MYAP,         \
-                     _,        _,        _,          _,         _,         _ \
+                     _,        _,        _,          _,         KC_DEL,       _ \
 ),
 /* FLASH
  *
