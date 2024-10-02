@@ -5,8 +5,9 @@ I setup the environment with:
 
 ```bash
 yay -S qmk
-qmk setup
 qmk setup -H /home/arialdo/prg/c/qmk_firmware
+git clone https://github.com/arialdomartini/qmk_userspace
+qmk config user.overlay_dir="$(realpath qmk_userspace)"
 ```
 
 The resulting QMK config is:
