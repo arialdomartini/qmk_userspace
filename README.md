@@ -25,7 +25,8 @@ qmk new-keymap -kb maple_computing/minidoc -km gould
 
 which created:
 
-``` /home/arialdo/prg/c/qmk_userspace/keyboards/maple_computing/minidox/rev1/keymaps/gould:
+```
+/home/arialdo/prg/c/qmk_userspace/keyboards/maple_computing/minidox/rev1/keymaps/gould:
 ```
 
 Notice that the directory `rev1` did not exist in the original
