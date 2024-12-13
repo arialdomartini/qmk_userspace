@@ -10,6 +10,11 @@
 
 #define _ KC_NO
 
+#define MY_E MT(MOD_LCTL | MOD_LALT | MOD_LSFT, KC_E)
+#define MY_MEH LCTL(LALT(LSFT(KC_NO)))
+
+#define MY_I MT(MOD_LCTL | MOD_LALT | MOD_LSFT, KC_I)
+
 #define MY_F MT(MOD_LSFT, KC_F)
 #define MY_4 MT(MOD_LSFT, KC_4)
 #define MY_F4 MT(MOD_LSFT, KC_F4)
@@ -176,7 +181,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [_BASE] = LAYOUT_split_3x5_3( \
-  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    \
+  KC_Q,    KC_W,    MY_E,    KC_R,    KC_T,         KC_Y,    KC_U,    MY_I,    KC_O,    KC_P,    \
   MY_A,    MY_S,    MY_D,    MY_F,    KC_G,         KC_H,    MY_J,    MY_K,    MY_L,    MY_SCLN, \
   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,         KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, \
 
@@ -185,7 +190,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* CURS
  * ,----------------------------------.           ,----------------------------------.
- * |  `   |      |      |      |      |           | Menu | Home |  Up  | End  |  '   |
+ * |  `   |      | Meh     |      |      |           | Menu | Home |  Up  | End  |  '   |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |      |      |      |      |      |           |      |      |      |      |      |
  * |Super |  Alt | Ctrl |Shift |      |           | Ins  |  <-  | Down |  ->  | WCaps|
@@ -199,7 +204,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [_CURS] = LAYOUT_split_3x5_3( \
-  KC_GRV,        _,       _,       _, _,            KC_MENU,  KC_HOME,  KC_UP,       KC_END,    KC_QUOTE, \
+  KC_GRV,        _,  MY_MEH,       _, _,            KC_MENU,  KC_HOME,  KC_UP,       KC_END,    KC_QUOTE, \
   KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _,            KC_INS,   KC_LEFT,  KC_DOWN,     KC_RIGHT,  CW_TOGG, \
   _,       _,       _,       _,       _,            MYDIR,    KC_PGUP,  KC_APPLICATION,  KC_PGDN,   KC_BSLS, \
                     _,       _,       _,            KC_TAB,    _,       _                              \
