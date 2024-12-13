@@ -8,12 +8,7 @@
 #define _FUNL  5
 #define _FLASH 6
 
-#define _ XXXXXXX 
-
-// Defines for task manager and such
-#define CALTDEL LCTL(LALT(KC_DEL))
-#define TSKMGR LCTL(LSFT(KC_ESC))
-
+#define _ KC_NO
 
 #define MY_F MT(MOD_LSFT, KC_F)
 #define MY_4 MT(MOD_LSFT, KC_4)
@@ -184,7 +179,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    \
   MY_A,    MY_S,    MY_D,    MY_F,    KC_G,         KC_H,    MY_J,    MY_K,    MY_L,    MY_SCLN, \
   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,         KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, \
-    MO(_FLASH),     MY_BSP,  MY_RET,       MY_SPC,  MY_DEL,  _______	\
+
+              MO(_FLASH),  MY_BSP,  MY_RET,       MY_SPC,   MY_DEL,   _ \
 ),
 
 /* CURS
@@ -202,11 +198,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                |      |    |      |
  *                                `------'    `------'
  */
-[_CURS] = LAYOUT_split_3x5_3(                                           \
-  KC_GRV,  _,       _______, _,       _,            KC_MENU,  KC_HOME,  KC_UP,       KC_END,    KC_QUOTE, \
-  KC_LGUI, _______, _______, _______, _,            KC_INS,   KC_LEFT,  KC_DOWN,     KC_RIGHT,  CW_TOGG, \
+[_CURS] = LAYOUT_split_3x5_3( \
+  KC_GRV,        _,       _,       _, _,            KC_MENU,  KC_HOME,  KC_UP,       KC_END,    KC_QUOTE, \
+  KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _,            KC_INS,   KC_LEFT,  KC_DOWN,     KC_RIGHT,  CW_TOGG, \
   _,       _,       _,       _,       _,            MYDIR,    KC_PGUP,  KC_APPLICATION,  KC_PGDN,   KC_BSLS, \
-                    _,       _,       _,            KC_TAB,    _,        _                              \
+                    _,       _,       _,            KC_TAB,    _,       _                              \
 ),
 
 /*
@@ -228,7 +224,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,    _,       KC_MINS,   KC_EQL,  KC_PPLS,  KC_ASTR,      \
   MY_1,    MY_2,    MY_3,    MY_4,    KC_5,       KC_6,    MY_7,      MY_8,     MY_9,     MY_0,   \
   KC_CIRC, KC_AMPR, _,       _,          _,       _,       _      ,   KC_COMM,  KC_DOT,   KC_SLSH,      \
-                    _,       _______,   S(KC_TAB),          _,       _,         _ \
+                    _,       _,  S(KC_TAB),       _,       _,    _ \
 ),
 /* FUNL
  *
