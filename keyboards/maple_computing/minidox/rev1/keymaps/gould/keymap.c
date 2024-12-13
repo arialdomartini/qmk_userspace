@@ -13,6 +13,11 @@
 #define MY_E MT(MOD_LCTL | MOD_LALT | MOD_LSFT, KC_E)
 #define MY_MEH LCTL(LALT(LSFT(KC_NO)))
 
+#define MY_R MT(MOD_LGUI | MOD_LCTL | MOD_LALT | MOD_LSFT, KC_R)
+#define MY_U MT(MOD_LGUI | MOD_LCTL | MOD_LALT | MOD_LSFT, KC_U)
+
+
+
 #define MY_I MT(MOD_LCTL | MOD_LALT | MOD_LSFT, KC_I)
 
 #define MY_F MT(MOD_LSFT, KC_F)
@@ -166,7 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *
  * ,----------------------------------.           ,----------------------------------.
  * |   Q  |   W  |   E  |   R  |   T  |           |   Y  |   U  |   I  |   O  |   P  |
- * |      |      |      |      |      |           |      |      |      |      |      |
+ * |      |      |  Meh |  Hpr |      |           |      |  Hpr |  Meh |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |   A  |   S  |   D  |   F  |   G  |           |   H  |   J  |   K  |   L  |   ;  |
  * | Super|  Alt | Ctrl |Shift |      |           |      | Shift| Ctrl | Alt  | Super|
@@ -181,7 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [_BASE] = LAYOUT_split_3x5_3( \
-  KC_Q,    KC_W,    MY_E,    KC_R,    KC_T,         KC_Y,    KC_U,    MY_I,    KC_O,    KC_P,    \
+  KC_Q,    KC_W,    MY_E,    MY_R,    KC_T,         KC_Y,    MY_U,    MY_I,    KC_O,    KC_P,    \
   MY_A,    MY_S,    MY_D,    MY_F,    KC_G,         KC_H,    MY_J,    MY_K,    MY_L,    MY_SCLN, \
   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,         KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, \
 
@@ -190,7 +195,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* CURS
  * ,----------------------------------.           ,----------------------------------.
- * |  `   |      | Meh     |      |      |           | Menu | Home |  Up  | End  |  '   |
+ * |  `   |      | Meh  |      |      |           | Menu | Home |  Up  | End  |  '   |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |      |      |      |      |      |           |      |      |      |      |      |
  * |Super |  Alt | Ctrl |Shift |      |           | Ins  |  <-  | Down |  ->  | WCaps|
