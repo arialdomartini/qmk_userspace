@@ -1,6 +1,7 @@
 {
     "userspace_version": "1.1",
     "build_targets": [
-        ["maple_computing/minidox/rev1", "gould"]
+        ["maple_computing/minidox/rev1", "gould"],
+        ["ferris/sweep", "gould"]
     ]
 }
