@@ -55,17 +55,10 @@
 #define MY_F10 MT(MOD_RGUI, KC_F10)
 
 
-
-
 #define MY_DEL LT(_FUNL, KC_DEL)
 #define MY_SPC LT(_NUM, KC_SPC)
 #define MY_RET LT(_CURS, KC_ENTER)
 #define MY_BSP LT(_SYMB, KC_BSPC)
-
-/* #define MY_Q LT(MEDI, KC_Q) */
-/* #define MY_G MT(MOD_HYPR, KC_G) */
-/* #define MY_H MT(MOD_HYPR, KC_H) */
-
 
 
 enum custom_keycodes {
