@@ -14,10 +14,9 @@
 #define MY_MEH LCTL(LALT(LSFT(KC_NO)))
 
 #define MY_R MT(MOD_LGUI | MOD_LCTL | MOD_LALT | MOD_LSFT, KC_R)
+#define MY_HYPR LCTL(LALT(LSFT(LGUI(KC_NO))))
+
 #define MY_U MT(MOD_LGUI | MOD_LCTL | MOD_LALT | MOD_LSFT, KC_U)
-
-
-
 #define MY_I MT(MOD_LCTL | MOD_LALT | MOD_LSFT, KC_I)
 
 #define MY_F MT(MOD_LSFT, KC_F)
@@ -188,7 +187,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* CURS
  * ,----------------------------------.           ,----------------------------------.
- * |  `   |      | Meh  |      |      |           | Menu | Home |  Up  | End  |  '   |
+ * |  `   |      | Meh  |  Hypr|      |           | Menu | Home |  Up  | End  |  '   |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |      |      |      |      |      |           |      |      |      |      |      |
  * |Super |  Alt | Ctrl |Shift |      |           | Ins  |  <-  | Down |  ->  | WCaps|
@@ -202,7 +201,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [_CURS] = LAYOUT_split_3x5_3( \
-  KC_GRV,        _,  MY_MEH,       _, _,            KC_MENU,  KC_HOME,  KC_UP,       KC_END,    KC_QUOTE, \
+  KC_GRV,        _,  MY_MEH, MY_HYPR, _,            KC_MENU,  KC_HOME,  KC_UP,       KC_END,    KC_QUOTE, \
   KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _,            KC_INS,   KC_LEFT,  KC_DOWN,     KC_RIGHT,  CW_TOGG, \
   _,       _,       _,       _,       _,            MYDIR,    KC_PGUP,  KC_APPLICATION,  KC_PGDN,   KC_BSLS, \
                     _,       _,       _,            KC_TAB,    _,       _                              \
