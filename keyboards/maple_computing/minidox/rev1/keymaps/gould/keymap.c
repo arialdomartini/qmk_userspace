@@ -3,7 +3,7 @@
 
 #define _BASE  0
 #define _CURS  1
-#define _NUM   2
+#define _NUM 2
 #define _SYMB  3
 #define _FUNL  5
 #define _FLASH 6
@@ -173,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                  ,--------------------.    ,------,-------------.
  *                  | _Flsh| BckSp|      |    |      | Del  |      |
  *                  |      | SYMB | RET  |    |Space | FUNL |      |
- *                  `-------------| CURS |    |NUMB  |------+------.
+ *                  `-------------| CURS |    |NUM   |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
  */
