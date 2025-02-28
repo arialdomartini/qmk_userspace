@@ -7,13 +7,13 @@ This is the keymap for the 1st Crab Broom (Ferris Sweep) I built.
 uses UF2 bootloader instead of DFU.
 
 ```bash
-qmk compile -e CONVERT_TO=promicro_rp2040 -kb ferris/sweep -km gould 
+qmk compile -e CONVERT_TO=promicro_rp2040 -kb ferris/sweep -km gould
 ```
 
 This generates a `uf2` file.
 
 - Connect the keyboard and click the reset button twice (really
-  quickly).
+  quickly). Otherwise, use the `Boot` key defined in the `_FLASH` layer.
   
 - The MCU will be mounted as an external disk.
 

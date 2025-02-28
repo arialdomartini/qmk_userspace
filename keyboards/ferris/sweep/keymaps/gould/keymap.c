@@ -219,7 +219,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |  ^   |  &   |      |      |      |           |      |      |  ,   |   .  |  /   |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
- *                  |      |      |      |    |      |      |      |
+ *                  |      | BckSp|      |    |      |      |      |
  *                  `-------------|CoTab |    |      |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
@@ -228,7 +228,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,    _,       KC_MINS,   KC_EQL,  KC_PPLS,  KC_ASTR,      \
   MY_1,    MY_2,    MY_3,    MY_4,    KC_5,       KC_6,    MY_7,      MY_8,     MY_9,     MY_0,   \
   KC_CIRC, KC_AMPR, _,       _,          _,       _,       _      ,   KC_COMM,  KC_DOT,   KC_SLSH,      \
-                             _,  S(KC_TAB),       _,       _ \
+                         KC_BSPC,  S(KC_TAB),       _,       _ \
 ),
 /* FUNL
  *
