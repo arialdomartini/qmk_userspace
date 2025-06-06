@@ -61,6 +61,8 @@
 #define MY_RET LT(_CURS, KC_ENTER)
 #define MY_BSP LT(_SYMB, KC_BSPC)
 
+#define MY_GRV MT(MOD_LGUI, KC_GRV)
+
 
 enum custom_keycodes {
     MYARROW = SAFE_RANGE,
@@ -189,10 +191,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* CURS
  * ,----------------------------------.           ,----------------------------------.
- * |  `   |      | Meh  |  Hypr|      |           | Menu | Home |  Up  | End  |  '   |
+ * |      |      | Meh  |  Hypr|      |           | Ins  | Home |  Up  | End  |  "   |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |      |      |      |      |      |           |      |      |      |      |      |
- * |Super |  Alt | Ctrl |Shift |      |           | Ins  |  <-  | Down |  ->  | WCaps|
+ * |  `   |      |      |      |      |           |      |      |      |      |      |
+ * |Super |  Alt | Ctrl |Shift |      |           |WCaps |  <-  | Down |  ->  |  '   |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |      |      |      |      |      |           |  :\  | PgUp | Contx|PgDown|  \   |
  * `----------------------------------'           `----------------------------------'
@@ -203,8 +205,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [_CURS] = LAYOUT( \
-  KC_GRV,        _,  MY_MEH, MY_HYPR, _,            KC_MENU,  KC_HOME,  KC_UP,       KC_END,    KC_QUOTE, \
-  KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _,            KC_INS,   KC_LEFT,  KC_DOWN,     KC_RIGHT,  CW_TOGG, \
+  _,      _,  MY_MEH, MY_HYPR, _,            KC_INS,   KC_HOME,  KC_UP,           KC_END,    KC_DQUO, \
+  MY_GRV, KC_LALT, KC_LCTL, KC_LSFT, _,            CW_TOGG,  KC_LEFT,  KC_DOWN,         KC_RIGHT,  KC_QUOTE, \
   _,       _,       _,       _,       _,            MYDIR,    KC_PGUP,  KC_APPLICATION,  KC_PGDN,   KC_BSLS, \
                              _,       _,            KC_TAB,    _ \
 ),
@@ -255,7 +257,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* 
  *
  * ,----------------------------------.           ,----------------------------------.
- * |_FLASH|      |      |      |      |           |   |  |  _   |  *   |  ~   |  "   |
+ * |_FLASH|      |      |      |      |           |   |  |  _   |  *   |  ~   |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |  <   |  {   |  [   |   (  |      |           |      |  )   |   ]  |  }   |  >   |
  * |------+------+------+------+------|           |------+------+------+------+------|
@@ -268,10 +270,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [_SYMB] = LAYOUT( \
-  MO(_FLASH),   _,        _,        _,        _,           KC_PIPE,  KC_UNDS,   KC_ASTR,   KC_TILD,  KC_DQUO,   \
-  KC_LT,   KC_LCBR,  KC_LBRC,  KC_LPRN,  _,           _,        KC_RPRN,   KC_RBRC,   KC_RCBR,  KC_GT,     \
-  MYMAP,   _,        _,        MYBARROW, MYBPIPE,     MYPIPE,   MYARROW,   MYDARROW,  MYBIND,   MYAP,         \
-                               _,        _,          _,         KC_DEL \
+  MO(_FLASH),   _,        _,        _,        _,             KC_PIPE,  KC_UNDS,   KC_ASTR,   KC_TILD,  _,   \
+  KC_LT,       KC_LCBR,  KC_LBRC,  KC_LPRN,   _,             _,        KC_RPRN,   KC_RBRC,   KC_RCBR,  KC_GT,     \
+  MYMAP,       _,        _,        MYBARROW,  MYBPIPE,       MYPIPE,   MYARROW,   MYDARROW,  MYBIND,   MYAP,         \
+                                   _,         _,             _,        KC_DEL \
 ),
 /* FLASH
  *
