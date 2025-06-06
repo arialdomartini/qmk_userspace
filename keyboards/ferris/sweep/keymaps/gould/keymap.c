@@ -1,7 +1,5 @@
 #include QMK_KEYBOARD_H
-//#include "quantum.h"
 #include "features/achordion.h"
-
 
 #define _BASE  0
 #define _CURS  1
@@ -62,7 +60,6 @@
 #define MY_BSP LT(_SYMB, KC_BSPC)
 
 #define MY_GRV MT(MOD_LGUI, KC_GRV)
-
 
 enum custom_keycodes {
     MYARROW = SAFE_RANGE,
@@ -230,16 +227,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,    _,       KC_MINS,   KC_EQL,  KC_PPLS,  KC_ASTR,      \
   MY_1,    MY_2,    MY_3,    MY_4,    KC_5,       KC_6,    MY_7,      MY_8,     MY_9,     MY_0,   \
   KC_CIRC, KC_AMPR, _,       _,          _,       _,       _      ,   KC_COMM,  KC_DOT,   KC_SLSH,      \
-                         KC_BSPC,  S(KC_TAB),       _,       _ \
+                       KC_BSPC,  S(KC_TAB),       _,       _ \
 ),
 /* FUNL
  *
  * ,----------------------------------.           ,----------------------------------.
- * |  F11 |  F12 |  F12 |  F14 |  F15 |           |  F16 |  F17 |  F18 |  F19 | F20  |
+ * |  F11 |  F12 |  F12 |  F14 |  F15 |           |      |      |      |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |  F1  |  F2  |  F3  |  F4  |  F5  |           |  F6  |  F7  |  F8  |  F9  | F10  |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |      |      |      |      |      |           |      |      |      |      |      |
+ * |  F16 |  F17 |  F18 |  F19 | F20  |           |      |      |      |      |      |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
  *                  |      | BCSP | ESC  |    |      |      |      |
@@ -248,10 +245,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [_FUNL] = LAYOUT( \
-  KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,    KC_F16,  KC_F17,   KC_F18,   KC_F19,  KC_F20,   \
-  MY_F1,   MY_F2,   MY_F3,   MY_F4,   KC_F5,     KC_F6,   MY_F7,    MY_F8,    MY_F9,   MY_F10,   \
-  _,       _,       _,       _,          _,       _,        _,        _,       _,   _,       \
-                             KC_BSPC,     KC_ESC,       _,       _ \
+  KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,    _,       _,       _,       _,          _,   \
+  MY_F1,   MY_F2,   MY_F3,   MY_F4,   KC_F5,     KC_F6,   MY_F7,   MY_F8,   MY_F9,   MY_F10, \
+  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,    _,       _,       _,       _,       _,      \
+                         KC_BSPC,     KC_ESC,    _,       _ \
 ),
 
 /* 
@@ -270,9 +267,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [_SYMB] = LAYOUT( \
-  MO(_FLASH),   _,        _,        _,        _,             KC_PIPE,  KC_UNDS,   KC_ASTR,   KC_TILD,  _,   \
-  KC_LT,       KC_LCBR,  KC_LBRC,  KC_LPRN,   _,             _,        KC_RPRN,   KC_RBRC,   KC_RCBR,  KC_GT,     \
-  MYMAP,       _,        _,        MYBARROW,  MYBPIPE,       MYPIPE,   MYARROW,   MYDARROW,  MYBIND,   MYAP,         \
+  MO(_FLASH),        _,        _,        _,        _,      KC_PIPE,  KC_UNDS,   KC_ASTR,   KC_TILD,      _,   \
+  KC_LT,       KC_LCBR,  KC_LBRC,  KC_LPRN,        _,            _,  KC_RPRN,   KC_RBRC,   KC_RCBR,  KC_GT,   \
+  MYMAP,             _,        _, MYBARROW,  MYBPIPE,       MYPIPE,  MYARROW,  MYDARROW,    MYBIND,   MYAP,   \
                                    _,         _,             _,        KC_DEL \
 ),
 /* FLASH
