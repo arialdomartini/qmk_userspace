@@ -72,12 +72,8 @@ enum custom_keycodes {
     MYMAP,
     MYDIR,
 
-    ER_TO_T,
-    DF_TO_G,
     CV_TO_B,
 
-    IU_TO_Y,
-    KJ_TO_H,
     COMMAM_TO_N,
     
 };
@@ -159,32 +155,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
-    case ER_TO_T:
-        if (record->event.pressed) {
-          SEND_STRING("t");
-        }
-       break;
-     case DF_TO_G:
-        if (record->event.pressed) {
-          SEND_STRING("g");
-        }
-       break;
      case CV_TO_B:
         if (record->event.pressed) {
           SEND_STRING("b");
         }
         break;
 
-    case IU_TO_Y:
-        if (record->event.pressed) {
-          SEND_STRING("y");
-        }
-       break;
-     case KJ_TO_H:
-        if (record->event.pressed) {
-          SEND_STRING("h");
-        }
-       break;
      case COMMAM_TO_N:
         if (record->event.pressed) {
           SEND_STRING("n");
@@ -195,23 +171,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
-const uint16_t PROGMEM er_combo[] = {MY_E, MY_R, COMBO_END};
-const uint16_t PROGMEM df_combo[] = {MY_D, MY_F, COMBO_END};
 const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
-
-
-const uint16_t PROGMEM iu_combo[] = {MY_I, MY_U, COMBO_END};
-const uint16_t PROGMEM kj_combo[] = {MY_K, MY_J, COMBO_END};
 const uint16_t PROGMEM commam_combo[] = {KC_COMMA, KC_M, COMBO_END};
 
 combo_t key_combos[] = {
-  [0] = COMBO(er_combo, ER_TO_T),
-  [1] = COMBO(df_combo, DF_TO_G),
-  [2] = COMBO(cv_combo, CV_TO_B),
+  [0] = COMBO(cv_combo, CV_TO_B),
 
-  [3] = COMBO(iu_combo, IU_TO_Y),
-  [4] = COMBO(kj_combo, KJ_TO_H),
-  [5] = COMBO(commam_combo, COMMAM_TO_N),
+  [1] = COMBO(commam_combo, COMMAM_TO_N),
 };
 
 
