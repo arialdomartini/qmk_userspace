@@ -175,9 +175,9 @@ const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM commam_combo[] = {KC_COMMA, KC_M, COMBO_END};
 
 combo_t key_combos[] = {
-  [0] = COMBO(cv_combo, CV_TO_B),
+  COMBO(cv_combo, CV_TO_B),
 
-  [1] = COMBO(commam_combo, COMMAM_TO_N),
+  COMBO(commam_combo, COMMAM_TO_N),
 };
 
 
