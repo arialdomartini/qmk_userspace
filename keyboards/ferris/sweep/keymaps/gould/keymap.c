@@ -155,29 +155,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
-     case CV_TO_B:
-        if (record->event.pressed) {
-          SEND_STRING("b");
-        }
-        break;
-
-     case COMMAM_TO_N:
-        if (record->event.pressed) {
-          SEND_STRING("n");
-        }
-        break;
-
   };
   return true;
 }
 
-const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM commam_combo[] = {KC_COMMA, KC_M, COMBO_END};
+const uint16_t PROGMEM CV_COMBO[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM COMMAM_COMBO[] = {KC_COMMA, KC_M, COMBO_END};
 
 combo_t key_combos[] = {
-  COMBO(cv_combo, CV_TO_B),
-
-  COMBO(commam_combo, COMMAM_TO_N),
+    COMBO(CV_COMBO, KC_B),
+    COMBO(COMMAM_COMBO, KC_N),
 };
 
 
