@@ -1,5 +1,4 @@
 #pragma once
 
-#define TAPPING_FORCE_HOLD
-#undef TAPPING_TERM
+#define PERMISSIVE_HOLD
 #define TAPPING_TERM 160
