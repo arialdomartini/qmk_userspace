@@ -128,10 +128,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM CV_COMBO[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM COMMAM_COMBO[] = {KC_COMMA, KC_M, COMBO_END};
 
+const uint16_t PROGMEM DF_COMBO[] = {MY_D, MY_F, COMBO_END};
+
 combo_t key_combos[] = {
     COMBO(CV_COMBO, KC_B),
     COMBO(COMMAM_COMBO, KC_N),
+    COMBO(DF_COMBO, KC_G),
 };
+
+
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT(
+        'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L',     'R', 'R', 'R', 'R', 'R',
+                       'L', 'L',     'R', 'R'
+    );
+
 
 
 // Chordal Hold Logic
