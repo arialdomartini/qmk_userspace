@@ -1,5 +1,4 @@
 #include QMK_KEYBOARD_H
-#include "features/achordion.h"
 
 #define _BASE  0
 #define _CURS  1
@@ -19,7 +18,7 @@
 #define MY_U MT(MOD_LGUI | MOD_LCTL | MOD_LALT | MOD_LSFT, KC_U)
 #define MY_I MT(MOD_LCTL | MOD_LALT | MOD_LSFT, KC_I)
 
-#define MY_F MT(MOD_LSFT, KC_F)
+#define MY_F LSFT_T(KC_F)
 #define MY_4 MT(MOD_LSFT, KC_4)
 #define MY_F4 MT(MOD_LSFT, KC_F4)
 
@@ -27,7 +26,7 @@
 #define MY_7 MT(MOD_RSFT, KC_7)
 #define MY_F7 MT(MOD_RSFT, KC_F7)
 
-#define MY_D MT(MOD_LCTL, KC_D)
+#define MY_D LCTL_T(KC_D)
 #define MY_3 MT(MOD_LCTL, KC_3)
 #define MY_F3 MT(MOD_LCTL, KC_F3)
 
@@ -78,36 +77,8 @@ enum custom_keycodes {
     
 };
 
-void matrix_scan_user(void) {
-  achordion_task();
-}
-
-bool achordion_chord(uint16_t tap_hold_keycode,
-                     keyrecord_t* tap_hold_record,
-                     uint16_t other_keycode,
-                     keyrecord_t* other_record) {
-  switch (tap_hold_keycode) {
-    case MY_RET:
-      return true;
-
-    case MY_SPC:
-      return true;
-
-    case MY_BSP:
-      if (other_keycode == KC_DEL) { return false; }
-      return true;
-
-    case MY_DEL:
-      if (other_keycode == KC_BSPC) { return false; }
-      return true;
-  }
-
-  // Otherwise, follow the opposite hands rule.
-  return achordion_opposite_hands(tap_hold_record, other_record);
-}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (!process_achordion(keycode, record)) { return false; }
   switch (keycode) {
     case MYARROW:
         if (record->event.pressed) {
@@ -168,8 +139,10 @@ combo_t key_combos[] = {
 };
 
 
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
+  
 /* Base
  *
  * ,----------------------------------.           ,----------------------------------.
