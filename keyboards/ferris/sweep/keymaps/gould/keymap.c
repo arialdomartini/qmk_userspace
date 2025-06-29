@@ -69,12 +69,7 @@ enum custom_keycodes {
     MYBPIPE,
     MYAP,
     MYMAP,
-    MYDIR,
-
-    CV_TO_B,
-
-    COMMAM_TO_N,
-    
+    MYDIR
 };
 
 
@@ -138,6 +133,20 @@ combo_t key_combos[] = {
     COMBO(COMMAM_COMBO, KC_N),
 };
 
+
+// Chordal Hold Logic
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
+  switch(tap_hold_keycode) {
+    case MY_D:
+    case MY_F:
+      return true;
+
+    default:
+      break;
+  }
+
+  return get_chordal_hold_default(tap_hold_record, other_record);
+}
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
