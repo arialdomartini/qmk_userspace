@@ -1,5 +1,5 @@
 #pragma once
 
 #define PERMISSIVE_HOLD
-#define TAPPING_TERM 160
+#define TAPPING_TERM 200
 #define CHORDAL_HOLD
