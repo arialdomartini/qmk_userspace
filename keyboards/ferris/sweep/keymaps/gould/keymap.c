@@ -72,6 +72,16 @@ enum custom_keycodes {
     MYDIR
 };
 
+/* const bool PROGMEM hand_assignment[5][7] = { */
+/*     // L0   L1   L2   LT0  LT1  R0   R1 */
+/*     { 1 ,  1 ,  1 ,  1 ,  1 ,  0 ,  0 }, // Row 0 (top) */
+/*     { 1 ,  1 ,  1 ,  1 ,  1 ,  0 ,  0 }, // Row 1 */
+/*     { 1 ,  1 ,  1 ,  1 ,  1 ,  0 ,  0 }, // Row 2 */
+/*     { 1 ,  1 ,  1 ,  1 ,  1 ,  0 ,  0 }, // Thumb row 1 (if present) */
+/*     { 1 ,  1 ,  1 ,  1 ,  1 ,  0 ,  0 }, // Thumb row 2 (if present) */
+/* }; */
+
+
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
@@ -134,19 +144,19 @@ combo_t key_combos[] = {
 };
 
 
-// Chordal Hold Logic
-bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
-  switch(tap_hold_keycode) {
-    case MY_D:
-    case MY_F:
-      return true;
+/* // Chordal Hold Logic */
+/* bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) { */
+/*   switch(tap_hold_keycode) { */
+/*     case MY_D: */
+/*     case MY_F: */
+/*       return true; */
 
-    default:
-      break;
-  }
+/*     default: */
+/*       break; */
+/*   } */
 
-  return get_chordal_hold_default(tap_hold_record, other_record);
-}
+/*   return get_chordal_hold_default(tap_hold_record, other_record); */
+/* } */
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
