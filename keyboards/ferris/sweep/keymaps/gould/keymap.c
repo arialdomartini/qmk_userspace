@@ -190,7 +190,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* CURS
  * ,----------------------------------.           ,----------------------------------.
- * |      |      | Meh  |  Hypr|      |           | Ins  | Home |  Up  | End  |  "   |
+ * |  `   |      | Meh  |  Hypr|      |           | Ins  | Home |  Up  | End  |  "   |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |  `   |      |      |      |      |           |      |      |      |      |      |
  * |Super |  Alt | Ctrl |Shift |      |           |WCaps |  <-  | Down |  ->  |  '   |
@@ -198,16 +198,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |           |  :\  | PgUp | Contx|PgDown|  \   |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
- *                  |      |      |      |    |      |      |      |
+ *                  |      |      |      |    |      |   `  |      |
  *                  `-------------|      |    | Tab  |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
  */
 [_CURS] = LAYOUT( \
-  _,      _,  MY_MEH, MY_HYPR, _,            KC_INS,   KC_HOME,  KC_UP,           KC_END,    KC_DQUO, \
+  KC_GRV,            _,  MY_MEH, MY_HYPR, _,            KC_INS,   KC_HOME,  KC_UP,           KC_END,    KC_DQUO, \
   MY_GRV, KC_LALT, KC_LCTL, KC_LSFT, _,            CW_TOGG,  KC_LEFT,  KC_DOWN,         KC_RIGHT,  KC_QUOTE, \
   _,       _,       _,       _,       _,            MYDIR,    KC_PGUP,  KC_APPLICATION,  KC_PGDN,   KC_BSLS, \
-                             _,       _,            KC_TAB,    _ \
+                             _,       _,            KC_TAB,   KC_GRV \
 ),
 
 /*
