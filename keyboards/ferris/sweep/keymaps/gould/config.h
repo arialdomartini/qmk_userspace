@@ -1,5 +1,5 @@
 #pragma once
 
-#define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 150
-//#define CHORDAL_HOLD
+#define PERMISSIVE_HOLD
+#define QUICK_TAP_TERM 0
